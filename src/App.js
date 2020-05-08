@@ -23,17 +23,17 @@ class App extends Component {
     console.log(fetchedData);
     console.log(country);
 
-    this.setState({ data: fetchedData });
+    this.setState({ data: fetchedData, country: country });
   };
 
   render() {
-    const { data } = this.state;
+    const { data, country } = this.state;
 
     return (
       <div className='appContainer'>
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} />
+        <Chart data={data} country={country} />
       </div>
     );
   };
