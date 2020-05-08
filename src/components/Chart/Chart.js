@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchDailyData } from '../../api';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 
 const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
@@ -12,12 +12,11 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
     };
 
     fetchAPI();
-  });
+  }, []);
 
   const lineChart = (
     dailyData.length
-    ?
-    (
+    ? (
       <Line
       data= {{
         labels: dailyData.map(({ date }) => date),
@@ -35,14 +34,36 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
         }],
       }}
       />
-    )
-    :
-    null
+    ) : null
   );
+
+  const barChart = (
+    confirmed
+    ? (
+      <Bar
+      data={{
+        labels: ['Zakażeni', 'Zgony', 'Wyleczeni' ],
+        datasets: [{
+          label: 'Ludzie',
+          backgroundColor: [
+            'rgba(0, 0, 255, 0.5)',
+            'rgba(255, 0, 0, 0.5)',
+            'rgba(0, 255, 0, 0.5)',
+          ],
+          data: [confirmed.value, deaths.value, recovered.value]
+        }]
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `Obecny stan w państwie ${country}`}
+      }}
+      />
+    ) : null
+  )
 
   return (
     <div className='chartContainer'>
-      {lineChart}
+      {country ? barChart : lineChart}
     </div>
   );
 };
