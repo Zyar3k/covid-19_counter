@@ -25,7 +25,7 @@ class App extends Component {
         <div className='appContainer'>
           <Cards data={data} />
           <CountryPicker />
-          <Chart />
+          <Chart data={data} />
         </div>
       </div>
     );
