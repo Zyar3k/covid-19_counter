@@ -41,7 +41,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
   );
 
   return (
-    <div>
+    <div className='chartContainer'>
       {lineChart}
     </div>
   );

@@ -8,6 +8,7 @@ import './app.scss';
 class App extends Component {
   state = {
     data: {},
+    country: ''
   }
 
   async componentDidMount() {
@@ -17,16 +18,22 @@ class App extends Component {
     console.log(fetchedData);
   };
 
+  handleCountryChange = async (country) => {
+    const fetchedData = await fetchData(country);
+    console.log(fetchedData);
+    console.log(country);
+
+    this.setState({ data: fetchedData });
+  };
+
   render() {
     const { data } = this.state;
 
     return (
-      <div className='app'>
-        <div className='appContainer'>
-          <Cards data={data} />
-          <CountryPicker />
-          <Chart data={data} />
-        </div>
+      <div className='appContainer'>
+        <Cards data={data} />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Chart data={data} />
       </div>
     );
   };
