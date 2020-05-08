@@ -3,21 +3,30 @@ import Cards from './components/Cards/Cards';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 import Chart from './components/Chart/Chart';
 import { fetchData } from './api';
+import './app.scss';
 
 class App extends Component {
+  state = {
+    data: {},
+  }
 
   async componentDidMount() {
-    const data = await fetchData();
+    const fetchedData = await fetchData();
 
-    console.log(data);
+    this.setState({ data: fetchedData });
+    console.log(fetchedData);
   };
 
   render() {
+    const { data } = this.state;
+
     return (
-      <div>
-        <Cards />
-        <CountryPicker />
-        <Chart />
+      <div className='app'>
+        <div className='appContainer'>
+          <Cards data={data} />
+          <CountryPicker />
+          <Chart />
+        </div>
       </div>
     );
   };
