@@ -1,5 +1,6 @@
 import React from 'react'
 import './Cards.scss';
+import CountUp from 'react-countup';
 
 const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate} }) => {
 
@@ -13,23 +14,29 @@ const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate} }) => {
 
         <div className='card'>
           <div>Zakażonych</div>
-          <div>{confirmed.value}</div>
+          <div>
+            <CountUp start={0} end={confirmed.value} duration={2.5} separator=',' />
+          </div>
           <div>Stan na:</div>
-          <div>{lastUpdate}</div>
+          <div>{new Date(lastUpdate).toDateString()}</div>
           <div>Liczba aktywnych przypadków z Covid-19</div>
         </div>
         <div className='card'>
           <div>Wyzdrowiało</div>
-          <div>{recovered.value}</div>
+          <div>
+            <CountUp start={0} end={recovered.value} duration={2.5} separator=',' />
+          </div>
           <div>Stan na:</div>
-          <div>{lastUpdate}</div>
+          <div>{new Date(lastUpdate).toDateString()}</div>
           <div>Liczba aktywnych przypadków z Covid-19</div>
         </div>
         <div className='card'>
           <div>Zgony</div>
-          <div>{deaths.value}</div>
+          <div>
+            <CountUp start={0} end={deaths.value} duration={2.5} separator=',' />
+          </div>
           <div>Stan na:</div>
-          <div>{lastUpdate}</div>
+          <div>{new Date(lastUpdate).toDateString()}</div>
           <div>Liczba aktywnych przypadków z Covid-19</div>
         </div>
 
