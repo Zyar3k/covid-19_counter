@@ -1,0 +1,11 @@
+.formControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nativeSelect {
+
+    select {
+      padding: 4px 10px;
+    }
+  }
+}

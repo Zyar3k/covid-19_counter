@@ -1,0 +1,12 @@
+.containerChart {
+  margin: 50px auto;
+  width: 65%;
+  height: 40%;
+}
+
+@media(max-width: 767px) {
+  .containerChart {
+    margin: 0 auto;
+    width: 90%;
+  }
+}

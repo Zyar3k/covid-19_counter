@@ -1,47 +1,41 @@
-import React from 'react'
+import React from 'react';
 import './Cards.scss';
 import CountUp from 'react-countup';
 
 const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate} }) => {
 
-  // console.log(props);
   if (!confirmed) {
     return 'wczytuję dane...'
   }
   return (
-    <div>
       <div className='cardWrapper'>
-
-        <div className='card'>
-          <div>Zakażonych</div>
-          <div>
+        <div className='card confirmed'>
+          <h6>Liczba przypadków z Covid-19</h6>
+          <h3>Zakażonych</h3>
+          <h1>
             <CountUp start={0} end={confirmed.value} duration={2.5} separator=',' />
-          </div>
-          <div>Stan na:</div>
-          <div>{new Date(lastUpdate).toDateString()}</div>
-          <div>Liczba aktywnych przypadków z Covid-19</div>
+          </h1>
+          <p>Stan na:</p>
+          <h4>{new Date(lastUpdate).toDateString()}</h4>
         </div>
-        <div className='card'>
-          <div>Wyzdrowiało</div>
-          <div>
+        <div className='card recovered'>
+          <h6>Liczba przypadków z Covid-19</h6>
+          <h3>Wyzdrowiało</h3>
+          <h1>
             <CountUp start={0} end={recovered.value} duration={2.5} separator=',' />
-          </div>
-          <div>Stan na:</div>
-          <div>{new Date(lastUpdate).toDateString()}</div>
-          <div>Liczba aktywnych przypadków z Covid-19</div>
+          </h1>
+          <p>Stan na:</p>
+          <h4>{new Date(lastUpdate).toDateString()}</h4>
         </div>
-        <div className='card'>
-          <div>Zgony</div>
-          <div>
+        <div className='card deaths'>
+          <h6>Liczba przypadków z Covid-19</h6>
+          <h3>Zgony</h3>
+          <h1>
             <CountUp start={0} end={deaths.value} duration={2.5} separator=',' />
-          </div>
-          <div>Stan na:</div>
-          <div>{new Date(lastUpdate).toDateString()}</div>
-          <div>Liczba aktywnych przypadków z Covid-19</div>
+          </h1>
+          <p>Stan na:</p>
+          <h4>{new Date(lastUpdate).toDateString()}</h4>
         </div>
-
-
-      </div>
     </div>
   );
 };

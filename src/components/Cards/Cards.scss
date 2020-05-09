@@ -1,11 +1,37 @@
 .cardWrapper {
+  margin: 10px 0;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
-  background: lightsalmon;
+  justify-content: space-evenly;
+  
+  .card {
+    padding: 10px 30px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 0 4px #8e9eab;
+
+    &.confirmed {
+      border-bottom: 4px solid rgba(0, 0, 255, 0.5);
+    }
+
+    &.recovered {
+      border-bottom: 4px solid rgba(0, 255, 0, 0.5);
+    }
+
+    &.deaths {
+      border-bottom: 4px solid rgba(255, 0, 0, 0.5);
+    }
+  }
 }
 
-.card {
-  
-  width: 30%;
+@media(max-width: 767px) {
+  .cardWrapper {
+
+    .card {
+      width: 100%;
+      margin-bottom: 6px;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchDailyData } from '../../api';
 import { Line, Bar } from 'react-chartjs-2';
+import './Chart.scss';
 
 
 const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
@@ -42,15 +43,15 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
     ? (
       <Bar
       data={{
-        labels: ['Zakażeni', 'Zgony', 'Wyleczeni' ],
+        labels: ['Zakażeni', 'Wyleczeni', 'Zgony' ],
         datasets: [{
           label: 'Ludzie',
           backgroundColor: [
             'rgba(0, 0, 255, 0.5)',
-            'rgba(255, 0, 0, 0.5)',
             'rgba(0, 255, 0, 0.5)',
+            'rgba(255, 0, 0, 0.5)',
           ],
-          data: [confirmed.value, deaths.value, recovered.value]
+          data: [confirmed.value, recovered.value, deaths.value]
         }]
       }}
       options={{
@@ -62,7 +63,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
   )
 
   return (
-    <div className='chartContainer'>
+    <div className='containerChart'>
       {country ? barChart : lineChart}
     </div>
   );
