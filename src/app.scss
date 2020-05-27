@@ -7,24 +7,70 @@ body {
 
   .appContainer {
     height: 100vh;
-    justify-content: space-evenly;
     display: flex;
     flex-direction: column;
     margin: 0 5%;
 
-    img{
-      margin: 0 auto;
-      width: 300px;
+    .titleSection {
+      height: 5%;
+      text-align: center;
+      font-size: 40px;
+      border-bottom: 2px solid grey;
+    }
+
+    .cardsSection {
+      height: 30%;
+    }
+
+    .countrySection {
+      text-align: center;
+      height: 5%;
+    }
+
+    .chartSection {
+      height: 60%;
+    }
+  }
+}
+
+@media(max-width: 992px) {
+  body {
+
+    .appContainer {
+      margin: 0;
     }
   }
 }
 
 @media(max-width: 767px) {
   body {
+
     .appContainer {
-      height: 100%;
-      margin: 0 8px;
-      margin-top: 20px;
+      height: auto;
+
+      .titleSection {
+        height: auto;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        border-bottom: 2px solid grey;
+      }
+      
+      .cardsSection {
+        height: auto;
+      }
+
+      .countrySection {
+        text-align: center;
+        height: auto;
+        padding: 10px 0;
+      }
+
+      .chartSection {
+        height: auto;
+      }
     }
   }
 }

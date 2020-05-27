@@ -32,10 +32,20 @@ class App extends Component {
 
     return (
       <div className='appContainer'>
-        <img src={Img} alt='img' />
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        {/* <img src={Img} alt='img' /> */}
+        <div className='titleSection'>Statystyki dotyczące Covid-19</div>
+        <span className='cardsSection'>
+          <Cards data={data} />
+        </span>
+        <span className='countrySection'>
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+        </span>
+        <span className='chartSection'>
+          <Chart data={data} country={country} />
+        </span>
+
+        
+        
       </div>
     );
   };

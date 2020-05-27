@@ -2,10 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  height: 100%;
+
   .nativeSelect {
 
     select {
-      padding: 4px 10px;
+      padding: 10px;
+      font-size: 20px;
+      background: #fff;
+      border-radius: 8px 8px 0 0;
+    }
+    
+    .MuiNativeSelect-icon {
+      color: transparent !important;
     }
   }
 }

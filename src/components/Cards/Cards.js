@@ -10,31 +10,32 @@ const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate} }) => {
   return (
       <div className='cardWrapper'>
         <div className='card confirmed'>
-          <h6>Liczba przypadków z Covid-19</h6>
-          <h3>Zakażonych</h3>
-          <h1>
+          <div className='title'>Liczba przypadków z Covid-19</div>
+          <div className='subtitle'>Zakażonych</div>
+          <div className='mainCount'>
             <CountUp start={0} end={confirmed.value} duration={2.5} separator=',' />
-          </h1>
-          <p>Stan na:</p>
-          <h4>{new Date(lastUpdate).toDateString()}</h4>
+          </div>
+          <div className='info'>Stan na:</div>
+          <div className='date'>{new Date(lastUpdate).toDateString()}</div>
         </div>
+
         <div className='card recovered'>
-          <h6>Liczba przypadków z Covid-19</h6>
-          <h3>Wyzdrowiało</h3>
-          <h1>
+          <div className='title'>Liczba przypadków z Covid-19</div>
+          <div className='subtitle'>Wyzdrowiało</div>
+          <div className='mainCount'>
             <CountUp start={0} end={recovered.value} duration={2.5} separator=',' />
-          </h1>
-          <p>Stan na:</p>
-          <h4>{new Date(lastUpdate).toDateString()}</h4>
+          </div>
+          <div className='info'>Stan na:</div>
+          <div className='date'>{new Date(lastUpdate).toDateString()}</div>
         </div>
         <div className='card deaths'>
-          <h6>Liczba przypadków z Covid-19</h6>
-          <h3>Zgony</h3>
-          <h1>
+          <div className='title'>Liczba przypadków z Covid-19</div>
+          <div className='subtitle'>Zgony</div>
+          <div className='mainCount'>
             <CountUp start={0} end={deaths.value} duration={2.5} separator=',' />
-          </h1>
-          <p>Stan na:</p>
-          <h4>{new Date(lastUpdate).toDateString()}</h4>
+          </div>
+          <div className='info'>Stan na:</div>
+          <div className='date'>{new Date(lastUpdate).toDateString()}</div>
         </div>
     </div>
   );
