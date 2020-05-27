@@ -1,4 +1,4 @@
-## [Check it out!](https://agitated-aryabhata-cef99e.netlify.app/)
+## [Check it out!](https://covid-19-counter.netlify.app/)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
